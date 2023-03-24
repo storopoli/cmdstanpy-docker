@@ -4,6 +4,7 @@ FROM python
 ENV CSVER=2.31.0
 ENV CMDSTAN=/opt/cmdstan-$CSVER
 ENV PYTHONDONTWRITEBYTECODE=1
+ENV HOME=/root
 
 # install openMPI and MPI's mpicxx binary
 RUN apt-get update && apt-get install -y --no-install-recommends build-essential curl libopenmpi-dev mpi-default-dev
