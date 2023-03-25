@@ -28,7 +28,7 @@ RUN cd cmdstan-$CSVER \
 WORKDIR $HOME
 
 # install cmdstanpy with all features and all other stuff
-RUN pip install --upgrade --no-cache-dir cmdstanpy[all] ipywidgets arviz numpy pandas seaborn
+RUN pip install --upgrade --no-cache-dir cmdstanpy[all] ipywidgets arviz numpy pandas seaborn pyarrow
 
 # entrypoint to terminal
 ENTRYPOINT ["/bin/bash"]
