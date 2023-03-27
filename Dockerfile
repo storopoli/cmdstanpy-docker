@@ -4,7 +4,7 @@ FROM python
 ENV CSVER=2.31.0
 ENV CMDSTAN=/opt/cmdstan-$CSVER
 ENV PYTHONDONTWRITEBYTECODE=1
-ENV HOME=/root
+RUN useradd -ms /bin/bash user
 
 # install openMPI and MPI's mpicxx binary
 RUN apt-get update && apt-get install -y --no-install-recommends build-essential curl libopenmpi-dev mpi-default-dev
@@ -24,11 +24,12 @@ COPY make/local $CMDSTAN/make/local
 RUN cd cmdstan-$CSVER \
  && make -j2 build examples/bernoulli/bernoulli
 
-# go back to the main user directory
-WORKDIR $HOME
-
 # install cmdstanpy with all features and all other stuff
 RUN pip install --upgrade --no-cache-dir cmdstanpy[all] ipywidgets arviz numpy pandas seaborn pyarrow
+
+# go back to the main user directory
+USER user
+WORKDIR /home/user
 
 # entrypoint to terminal
 ENTRYPOINT ["/bin/bash"]
