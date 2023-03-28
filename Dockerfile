@@ -25,7 +25,7 @@ RUN cd cmdstan-$CSVER \
  && make -j2 build examples/bernoulli/bernoulli
 
 # install cmdstanpy with all features and all other stuff
-RUN pip install --upgrade --no-cache-dir cmdstanpy[all] ipywidgets arviz numpy pandas seaborn pyarrow
+RUN pip install --upgrade --no-cache-dir cmdstanpy[all] ipywidgets arviz numpy pandas seaborn pyarrow jupyter
 
 # go back to the main user directory
 USER user
