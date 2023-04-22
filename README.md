@@ -13,7 +13,9 @@ Includes:
 
 The image follows from the official [Python Docker image](https://hub.docker.com/_/python/).
 
-If you want to run Jupyter you can do so with: `docker run --rm -ti -p 8787:8787 cmdstanpy`
+If you want to run Jupyter you can do so with: `docker run --rm -ti -p 8888 cmdstanpy`
+
+Followed by: `jupyter notebook --ip=0.0.0.0 --no-browser`
 
 ## LICENSE
 
